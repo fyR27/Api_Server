@@ -30,7 +30,7 @@ func (s *APIserver) Start() error {
 
 	s.logger.Info("starting api server")
 
-	return nil
+	return http.ListenAndServe(s.config.BindAddr, s.handleHello())
 }
 
 func (s *APIserver) configureLogger() error {
